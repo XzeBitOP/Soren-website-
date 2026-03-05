@@ -29,7 +29,8 @@ interface CartContextType {
   subtotal: number;
   discount: number;
   total: number;
-  discountCode: string;
+  appliedCode: string;
+  applyDiscountCode: (code: string) => boolean;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
@@ -37,7 +38,7 @@ const CartContext = createContext<CartContextType | undefined>(undefined);
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([]);
   const [isCartOpen, setIsCartOpen] = useState(false);
-  const discountCode = "ICE10";
+  const [appliedCode, setAppliedCode] = useState("");
 
   // Load cart from memory (clears on refresh as requested)
   // But we could use localStorage if we wanted to persist it.
@@ -71,10 +72,21 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   };
 
   const toggleCart = () => setIsCartOpen(prev => !prev);
-  const clearCart = () => setCartItems([]);
+  const clearCart = () => {
+    setCartItems([]);
+    setAppliedCode("");
+  };
+
+  const applyDiscountCode = (code: string) => {
+    if (code.toUpperCase() === "FROZENFREE") {
+      setAppliedCode("FROZENFREE");
+      return true;
+    }
+    return false;
+  };
 
   const subtotal = cartItems.reduce((sum, item) => sum + (item.product.price * item.quantity), 0);
-  const discount = subtotal * 0.10; // 10% discount
+  const discount = appliedCode === "FROZENFREE" ? subtotal * 0.10 : 0;
   const total = subtotal - discount;
 
   return (
@@ -88,7 +100,8 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
       subtotal,
       discount,
       total,
-      discountCode
+      appliedCode,
+      applyDiscountCode
     }}>
       {children}
     </CartContext.Provider>

@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import { X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 import { motion, AnimatePresence } from 'motion/react';
@@ -15,8 +16,22 @@ export default function Cart({ onCheckout }: CartProps) {
     subtotal, 
     discount, 
     total,
-    discountCode
+    appliedCode,
+    applyDiscountCode
   } = useCart();
+
+  const [couponInput, setCouponInput] = useState("");
+  const [couponError, setCouponError] = useState("");
+
+  const handleApplyCoupon = () => {
+    const success = applyDiscountCode(couponInput);
+    if (success) {
+      setCouponError("");
+      setCouponInput("");
+    } else {
+      setCouponError("Invalid discount code.");
+    }
+  };
 
   return (
     <AnimatePresence>
@@ -86,10 +101,28 @@ export default function Cart({ onCheckout }: CartProps) {
 
             {cartItems.length > 0 && (
               <div className="p-6 border-t border-gray-100 bg-gray-50">
-                <div className="border border-dashed border-gold p-4 mb-6 bg-white">
-                  <p className="text-sm text-center">
-                    Automatic 10% discount applied with code: <span className="font-mono text-gold font-medium">{discountCode}</span>
-                  </p>
+                <div className="mb-6">
+                  <div className="flex gap-2">
+                    <input 
+                      type="text" 
+                      placeholder="Discount Code"
+                      value={couponInput}
+                      onChange={(e) => setCouponInput(e.target.value)}
+                      className="flex-grow border border-gray-200 px-4 py-2 text-sm focus:outline-none focus:border-gold"
+                    />
+                    <button 
+                      onClick={handleApplyCoupon}
+                      className="bg-black text-white px-4 py-2 text-xs uppercase tracking-widest hover:bg-charcoal transition-colors"
+                    >
+                      Apply
+                    </button>
+                  </div>
+                  {couponError && <p className="text-red-500 text-[10px] mt-1 uppercase tracking-wider">{couponError}</p>}
+                  {appliedCode && (
+                    <p className="text-gold text-[10px] mt-1 uppercase tracking-wider font-medium">
+                      Code <span className="font-bold">{appliedCode}</span> applied!
+                    </p>
+                  )}
                 </div>
 
                 <div className="space-y-3 mb-6">
@@ -97,10 +130,12 @@ export default function Cart({ onCheckout }: CartProps) {
                     <span>Subtotal</span>
                     <span>₹{subtotal.toFixed(2)}</span>
                   </div>
-                  <div className="flex justify-between text-gold">
-                    <span>Discount {discountCode}</span>
-                    <span>-₹{discount.toFixed(2)}</span>
-                  </div>
+                  {discount > 0 && (
+                    <div className="flex justify-between text-gold">
+                      <span>Discount ({appliedCode})</span>
+                      <span>-₹{discount.toFixed(2)}</span>
+                    </div>
+                  )}
                   <div className="flex justify-between font-playfair text-2xl pt-3 border-t border-gray-200">
                     <span>Total</span>
                     <span>₹{total.toFixed(2)}</span>

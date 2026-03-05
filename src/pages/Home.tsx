@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
+import { Link } from 'react-router-dom';
 
 export default function Home() {
   const [timeLeft, setTimeLeft] = useState({
@@ -31,7 +32,7 @@ export default function Home() {
         if (!isLaunched) {
           setIsLaunched(true);
           setShowExplosion(true);
-          setTimeout(() => setShowExplosion(false), 3000);
+          setTimeout(() => setShowExplosion(false), 5000);
         }
         return { days: 0, hours: 0, minutes: 0, seconds: 0 };
       }
@@ -73,58 +74,139 @@ export default function Home() {
       <AnimatePresence>
         {showExplosion && (
           <motion.div 
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            exit={{ opacity: 0, scale: 1.5 }}
-            transition={{ duration: 0.8, ease: "easeOut" }}
-            className="fixed inset-0 z-50 flex items-center justify-center bg-white pointer-events-none"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] flex flex-col items-center justify-center bg-black pointer-events-none overflow-hidden"
           >
-            <h1 className="font-playfair text-[clamp(4rem,15vw,12rem)] font-bold tracking-tighter text-black">
-              DROP_1
-            </h1>
+            {/* Blasting particles effect */}
+            {[...Array(20)].map((_, i) => (
+              <motion.div
+                key={i}
+                initial={{ x: 0, y: 0, scale: 1, opacity: 1 }}
+                animate={{ 
+                  x: (Math.random() - 0.5) * 2000, 
+                  y: (Math.random() - 0.5) * 2000,
+                  scale: 0,
+                  opacity: 0
+                }}
+                transition={{ duration: 1.5, ease: "easeOut" }}
+                className="absolute w-4 h-4 bg-white rounded-full"
+              />
+            ))}
+
+            <motion.div
+              initial={{ scale: 0.1, opacity: 0 }}
+              animate={{ scale: [0.1, 1.5, 1], opacity: 1 }}
+              transition={{ duration: 1, times: [0, 0.7, 1] }}
+              className="text-center"
+            >
+              <h1 className="font-playfair text-[clamp(4rem,15vw,12rem)] font-bold tracking-tighter text-white mb-4">
+                DROP 01
+              </h1>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 1.2 }}
+                className="relative"
+              >
+                {/* Burning Flame Animation Effect */}
+                <span className="font-playfair italic text-[clamp(2rem,6vw,5rem)] text-transparent bg-clip-text bg-gradient-to-t from-orange-600 via-yellow-400 to-white animate-flame">
+                  A Rebel of the Society
+                </span>
+                <div className="absolute -inset-4 bg-orange-500/20 blur-3xl -z-10 animate-pulse"></div>
+              </motion.div>
+            </motion.div>
           </motion.div>
         )}
       </AnimatePresence>
 
       {/* COUNTDOWN SECTION */}
-      <section className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center relative px-4 py-12 overflow-hidden">
-        {/* Subtle grid pattern overlay */}
-        <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
-             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
-        </div>
-
-        <div className="z-10 flex flex-col items-center text-center w-full max-w-5xl mx-auto">
-          <p className="text-gray-500 uppercase tracking-[0.2em] text-xs mb-6 font-medium">
-            Drop 01 Launches In
-          </p>
-          
-          <h1 className="font-playfair text-[clamp(4rem,10vw,9rem)] leading-none mb-16 tracking-tight">
-            DROP 01
-          </h1>
-
-          <div className="grid grid-cols-4 gap-2 md:gap-8 lg:gap-12 mb-20 w-full max-w-4xl">
-            {[
-              { label: 'Days', value: timeLeft.days.toString().padStart(3, '0') },
-              { label: 'Hours', value: timeLeft.hours.toString().padStart(2, '0') },
-              { label: 'Minutes', value: timeLeft.minutes.toString().padStart(2, '0') },
-              { label: 'Seconds', value: timeLeft.seconds.toString().padStart(2, '0') }
-            ].map((unit, idx) => (
-              <div key={idx} className="flex flex-col items-center">
-                <div className="w-full aspect-square border border-gray-200 flex items-center justify-center bg-white shadow-sm mb-4">
-                  <span className="font-playfair text-[clamp(2rem,5vw,4.5rem)] font-medium tabular-nums">
-                    {unit.value}
-                  </span>
-                </div>
-                <span className="text-[10px] md:text-xs uppercase tracking-widest text-gray-500">{unit.label}</span>
-              </div>
-            ))}
+      {!isLaunched ? (
+        <section className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center relative px-4 py-12 overflow-hidden">
+          {/* Subtle grid pattern overlay */}
+          <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
+               style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
           </div>
 
-          <p className="font-playfair italic text-[clamp(1.2rem,3vw,1.8rem)] text-charcoal max-w-2xl">
-            The Søren Studio designs for <span className="text-[#C9A961]">identity</span>. Not validation.
-          </p>
-        </div>
-      </section>
+          <div className="z-10 flex flex-col items-center text-center w-full max-w-5xl mx-auto">
+            <p className="text-gray-500 uppercase tracking-[0.2em] text-xs mb-6 font-medium">
+              Drop 01 Launches In
+            </p>
+            
+            <h1 className="font-playfair text-[clamp(4rem,10vw,9rem)] leading-none mb-16 tracking-tight">
+              DROP 01
+            </h1>
+
+            <div className="grid grid-cols-4 gap-2 md:gap-8 lg:gap-12 mb-12 w-full max-w-4xl">
+              {[
+                { label: 'Days', value: timeLeft.days.toString().padStart(3, '0') },
+                { label: 'Hours', value: timeLeft.hours.toString().padStart(2, '0') },
+                { label: 'Minutes', value: timeLeft.minutes.toString().padStart(2, '0') },
+                { label: 'Seconds', value: timeLeft.seconds.toString().padStart(2, '0') }
+              ].map((unit, idx) => (
+                <div key={idx} className="flex flex-col items-center">
+                  <div className="w-full aspect-square border border-gray-200 flex items-center justify-center bg-white shadow-sm mb-4">
+                    <span className="font-playfair text-[clamp(2rem,5vw,4.5rem)] font-medium tabular-nums">
+                      {unit.value}
+                    </span>
+                  </div>
+                  <span className="text-[10px] md:text-xs uppercase tracking-widest text-gray-500">{unit.label}</span>
+                </div>
+              ))}
+            </div>
+
+            <div className="mb-16">
+              <p className="font-playfair text-2xl text-black mb-2">Welcome India ♥️</p>
+              <div className="h-px w-24 bg-gold mx-auto"></div>
+            </div>
+
+            <p className="font-playfair italic text-[clamp(1.2rem,3vw,1.8rem)] text-charcoal max-w-2xl">
+              The Søren Studio designs for <span className="text-[#C9A961]">identity</span>. Not validation.
+            </p>
+          </div>
+        </section>
+      ) : (
+        /* LAUNCHED BANNER SECTION */
+        <section className="min-h-[70vh] flex flex-col items-center justify-center relative px-4 py-24 overflow-hidden bg-black text-white">
+          <div className="absolute inset-0 opacity-40">
+            <img 
+              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180607.jpg" 
+              alt="Drop 01 Background" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent"></div>
+          
+          <motion.div 
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="z-10 flex flex-col items-center text-center w-full max-w-5xl mx-auto"
+          >
+            <p className="text-gold uppercase tracking-[0.4em] text-xs mb-6 font-bold">Collection Live Now</p>
+            <h1 className="font-playfair text-[clamp(3rem,8vw,7rem)] leading-none mb-4 tracking-tight">
+              DROP 01
+            </h1>
+            <h2 className="font-playfair italic text-[clamp(1.5rem,4vw,3.5rem)] text-white/90 mb-12">
+              A Rebel of the Society
+            </h2>
+            
+            <Link 
+              to="/buy"
+              className="group relative inline-flex items-center gap-4 bg-white text-black px-12 py-5 text-sm uppercase tracking-[0.3em] font-bold hover:bg-gold hover:text-white transition-all duration-500"
+            >
+              Shop Collection
+              <motion.span 
+                animate={{ x: [0, 5, 0] }}
+                transition={{ repeat: Infinity, duration: 1.5 }}
+              >
+                →
+              </motion.span>
+            </Link>
+          </motion.div>
+        </section>
+      )}
 
       {/* BRAND STATEMENT SECTION */}
       <section className="py-32 md:py-40 px-4 bg-white flex flex-col items-center text-center border-t border-gray-100">
@@ -188,12 +270,27 @@ export default function Home() {
       </section>
 
       {/* THEME EXPLANATION SECTION */}
-      <section className="py-24 px-4 bg-off-white flex flex-col items-center text-center">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="font-playfair text-[clamp(2rem,3vw,3rem)] leading-tight mb-12">
-            The Philosophy
-          </h2>
-          <div className="aspect-video w-full overflow-hidden bg-light-gray relative shadow-lg">
+      <section className="py-24 px-4 bg-off-white">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="order-2 lg:order-1">
+            <h2 className="font-playfair text-[clamp(2.5rem,4vw,4rem)] leading-tight mb-8">
+              The Philosophy of <span className="italic">Søren</span>
+            </h2>
+            <div className="space-y-6 text-gray-600 text-lg font-light leading-relaxed">
+              <p>
+                Our theme is born from the intersection of brutalist architecture and organic minimalism. 
+                We strip away the noise to reveal the essence of the individual.
+              </p>
+              <p>
+                Every stitch is a statement of intent. Every silhouette is a study in proportion. 
+                We don't follow trends; we define the space between them.
+              </p>
+              <p className="font-playfair italic text-gold text-xl">
+                "To be a rebel is to be yourself in a world that tries to make you everyone else."
+              </p>
+            </div>
+          </div>
+          <div className="order-1 lg:order-2 aspect-square w-full overflow-hidden bg-light-gray relative shadow-2xl rounded-sm">
             <img 
               src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/main/Asserts/IMG_2162.jpeg" 
               alt="Theme explanation" 

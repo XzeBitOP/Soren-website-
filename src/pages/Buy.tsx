@@ -5,22 +5,110 @@ import { useCart, Product } from '../context/CartContext';
 import Cart from '../components/Cart';
 import Checkout from '../components/Checkout';
 
-const MOCK_PRODUCT: Product = {
-  id: 'prod_1',
-  name: 'The Essential Tee',
-  price: 1200,
-  images: [
-    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180607.jpg',
-    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg',
-    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg',
-    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180732.jpg',
-    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180908.jpg'
-  ],
-  description: 'A minimalist staple. Crafted from heavy-weight organic cotton for a structured drape. Features our signature subtle logo embroidery.',
-  sizes: ['S', 'M', 'L', 'XL'],
-  colors: ['Black', 'White', 'Bone'],
-  collection: 'drop01'
-};
+const MOCK_PRODUCTS: Product[] = [
+  {
+    id: 'prod_1',
+    name: 'The Essential Tee',
+    price: 1200,
+    images: [
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180607.jpg',
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg',
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg',
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180732.jpg',
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180908.jpg'
+    ],
+    description: 'A minimalist staple. Crafted from heavy-weight organic cotton for a structured drape. Features our signature subtle logo embroidery.',
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['Black', 'White', 'Bone'],
+    collection: 'drop01'
+  },
+  {
+    id: 'prod_2',
+    name: 'Rebel Oversized Hoodie',
+    price: 3200,
+    images: [
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180607.jpg',
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg'
+    ],
+    description: 'Heavyweight fleece hoodie with a relaxed, boxy fit. Part of the Rebel of the Society collection.',
+    sizes: ['M', 'L', 'XL'],
+    colors: ['Black', 'Charcoal'],
+    collection: 'drop01'
+  },
+  {
+    id: 'prod_3',
+    name: 'Society Cargo Pants',
+    price: 2800,
+    images: [
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg',
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg'
+    ],
+    description: 'Technical cargo pants with multiple utility pockets and adjustable hems.',
+    sizes: ['30', '32', '34', '36'],
+    colors: ['Olive', 'Black'],
+    collection: 'drop01'
+  },
+  {
+    id: 'prod_4',
+    name: 'Identity Beanie',
+    price: 800,
+    images: [
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg'
+    ],
+    description: 'Soft-touch ribbed beanie with minimalist logo patch.',
+    sizes: ['One Size'],
+    colors: ['Black', 'Grey', 'Cream'],
+    collection: 'drop01'
+  },
+  {
+    id: 'prod_5',
+    name: 'Søren Signature Cap',
+    price: 1100,
+    images: [
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg'
+    ],
+    description: 'Classic 6-panel cap with high-density embroidery.',
+    sizes: ['One Size'],
+    colors: ['Black', 'Navy'],
+    collection: 'drop01'
+  },
+  {
+    id: 'prod_6',
+    name: 'Rebel Graphic Longsleeve',
+    price: 1800,
+    images: [
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180607.jpg'
+    ],
+    description: 'Premium cotton longsleeve with "Rebel of the Society" back print.',
+    sizes: ['S', 'M', 'L', 'XL'],
+    colors: ['White', 'Black'],
+    collection: 'drop01'
+  },
+  {
+    id: 'prod_7',
+    name: 'Society Utility Vest',
+    price: 3500,
+    images: [
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg'
+    ],
+    description: 'Layering piece with tactical pockets and breathable mesh lining.',
+    sizes: ['M', 'L'],
+    colors: ['Black'],
+    collection: 'drop01'
+  },
+  {
+    id: 'prod_8',
+    name: 'Identity Tote Bag',
+    price: 600,
+    images: [
+      'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180908.jpg'
+    ],
+    description: 'Heavy-duty canvas tote for daily essentials.',
+    sizes: ['One Size'],
+    colors: ['Natural', 'Black'],
+    collection: 'drop01'
+  }
+];
 
 export default function Buy() {
   const [products, setProducts] = useState<Product[]>([]);
@@ -33,18 +121,18 @@ export default function Buy() {
   const { addToCart } = useCart();
 
   useEffect(() => {
-    // Initialize mock data in localStorage if not exists
+    // Initialize mock data in localStorage if not exists or if we need to refresh it
     const storedProducts = localStorage.getItem('soren_products');
-    if (!storedProducts) {
-      localStorage.setItem('soren_products', JSON.stringify([MOCK_PRODUCT]));
-      setProducts([MOCK_PRODUCT]);
+    if (!storedProducts || JSON.parse(storedProducts).length < 8) {
+      localStorage.setItem('soren_products', JSON.stringify(MOCK_PRODUCTS));
+      setProducts(MOCK_PRODUCTS);
     } else {
       try {
         const parsed = JSON.parse(storedProducts);
         const drop01Products = parsed.filter((p: Product) => p.collection === 'drop01');
         setProducts(drop01Products);
       } catch (e) {
-        setProducts([MOCK_PRODUCT]);
+        setProducts(MOCK_PRODUCTS);
       }
     }
   }, []);
