@@ -223,102 +223,153 @@ export default function Home() {
         </div>
       </section>
 
-      {/* IMAGES SECTION */}
-      <section className="w-full max-w-7xl mx-auto px-4 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
-          {/* Model */}
-          <div className="aspect-[3/4] overflow-hidden bg-light-gray relative lg:col-span-2">
+      {/* ALTERNATING CONTENT SECTIONS */}
+      <section className="w-full bg-white">
+        {/* 1. The Silhouette (Model) */}
+        <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+          <div className="aspect-[3/4] overflow-hidden bg-light-gray shadow-xl">
             <img 
               src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180607.jpg" 
-              alt="Model wearing t-shirt" 
-              className="w-full h-full object-cover"
+              alt="The Søren Silhouette" 
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               referrerPolicy="no-referrer"
-              loading="lazy"
             />
           </div>
-          {/* Embroidery */}
-          <div className="aspect-[3/4] overflow-hidden bg-light-gray relative">
-            <img 
-              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg" 
-              alt="Logo embroidery" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-            />
-          </div>
-          {/* Material */}
-          <div className="aspect-[3/4] overflow-hidden bg-light-gray relative">
-            <img 
-              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg" 
-              alt="Material of clothes" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-            />
-          </div>
-          {/* Neon Sign */}
-          <div className="aspect-[3/4] overflow-hidden bg-light-gray relative lg:col-span-2">
-            <img 
-              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180732.jpg" 
-              alt="Neon sign" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-            />
+          <div className="space-y-6">
+            <span className="text-gold uppercase tracking-[0.3em] text-xs font-bold">01 — The Silhouette</span>
+            <h2 className="font-playfair text-[clamp(2.5rem,4vw,4rem)] leading-tight">
+              Engineered for <br /><span className="italic">Presence</span>.
+            </h2>
+            <p className="text-gray-500 text-lg font-light leading-relaxed">
+              Our garments are designed to command space without saying a word. 
+              The oversized drape of our Essential Tee provides a structured yet fluid silhouette 
+               that adapts to the wearer's identity.
+            </p>
           </div>
         </div>
-      </section>
 
-      {/* THEME EXPLANATION SECTION */}
-      <section className="py-24 px-4 bg-off-white">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="order-2 lg:order-1">
-            <h2 className="font-playfair text-[clamp(2.5rem,4vw,4rem)] leading-tight mb-8">
-              The Philosophy of <span className="italic">Søren</span>
-            </h2>
-            <div className="space-y-6 text-gray-600 text-lg font-light leading-relaxed">
-              <p>
-                Our theme is born from the intersection of brutalist architecture and organic minimalism. 
-                We strip away the noise to reveal the essence of the individual.
-              </p>
-              <p>
-                Every stitch is a statement of intent. Every silhouette is a study in proportion. 
-                We don't follow trends; we define the space between them.
-              </p>
-              <p className="font-playfair italic text-gold text-xl">
-                "To be a rebel is to be yourself in a world that tries to make you everyone else."
+        {/* 2. The Detail (Embroidery) */}
+        <div className="bg-off-white">
+          <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div className="order-2 md:order-1 space-y-6">
+              <span className="text-gold uppercase tracking-[0.3em] text-xs font-bold">02 — The Detail</span>
+              <h2 className="font-playfair text-[clamp(2.5rem,4vw,4rem)] leading-tight">
+                Subtle <br /><span className="italic">Signatures</span>.
+              </h2>
+              <p className="text-gray-500 text-lg font-light leading-relaxed">
+                We believe branding should be felt, not shouted. Our signature logo is 
+                meticulously embroidered with tonal precision, ensuring the focus remains 
+                on the quality of the garment and the character of the individual.
               </p>
             </div>
-          </div>
-          <div className="order-1 lg:order-2 aspect-square w-full overflow-hidden bg-light-gray relative shadow-2xl rounded-sm">
-            <img 
-              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/main/Asserts/IMG_2162.jpeg" 
-              alt="Theme explanation" 
-              className="w-full h-full object-cover"
-              referrerPolicy="no-referrer"
-              loading="lazy"
-            />
+            <div className="order-1 md:order-2 aspect-[3/4] overflow-hidden bg-light-gray shadow-xl">
+              <img 
+                src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg" 
+                alt="Logo Embroidery Detail" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
         </div>
-      </section>
-      
-      {/* MEANING OF BRAND SECTION */}
-      <section className="w-full bg-light-gray h-[60vh] md:h-[80vh] relative overflow-hidden flex items-center justify-center">
-        <img 
-          src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180908.jpg" 
-          alt="Meaning of our brand" 
-          className="absolute inset-0 w-full h-full object-cover opacity-90"
-          referrerPolicy="no-referrer"
-          loading="lazy"
-        />
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 text-center px-4">
-          <h2 className="font-playfair text-white text-[clamp(3rem,6vw,5rem)] leading-none mb-6 drop-shadow-lg">
-            Søren
-          </h2>
-          <p className="text-white/90 uppercase tracking-[0.3em] text-sm font-medium drop-shadow-md">
-            More than a name. An identity.
-          </p>
+
+        {/* 3. The Substance (Material) */}
+        <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+          <div className="aspect-[3/4] overflow-hidden bg-light-gray shadow-xl">
+            <img 
+              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg" 
+              alt="Material Texture" 
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="space-y-6">
+            <span className="text-gold uppercase tracking-[0.3em] text-xs font-bold">03 — The Substance</span>
+            <h2 className="font-playfair text-[clamp(2.5rem,4vw,4rem)] leading-tight">
+              Tactile <br /><span className="italic">Integrity</span>.
+            </h2>
+            <p className="text-gray-500 text-lg font-light leading-relaxed">
+              Every piece starts with the thread. We utilize high-GSM organic cotton 
+              that offers a substantial weight and a soft, lived-in feel. 
+              Durability meets comfort in a fabric designed to age with grace.
+            </p>
+          </div>
+        </div>
+
+        {/* 4. The Beacon (Neon Sign) */}
+        <div className="bg-black text-white">
+          <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div className="order-2 md:order-1 space-y-6">
+              <span className="text-gold uppercase tracking-[0.3em] text-xs font-bold">04 — The Beacon</span>
+              <h2 className="font-playfair text-[clamp(2.5rem,4vw,4rem)] leading-tight">
+                The <br /><span className="italic">Søren Studio</span>.
+              </h2>
+              <p className="text-gray-400 text-lg font-light leading-relaxed">
+                Our physical space reflects our digital heart. A sanctuary of minimalism 
+                where the neon glow of our logo serves as a beacon for those who 
+                seek alignment over fashion.
+              </p>
+            </div>
+            <div className="order-1 md:order-2 aspect-[3/4] overflow-hidden bg-charcoal shadow-2xl">
+              <img 
+                src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180732.jpg" 
+                alt="Søren Studio Neon" 
+                className="w-full h-full object-cover opacity-80 hover:opacity-100 transition-opacity duration-700"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
+        </div>
+
+        {/* 5. The Philosophy (Philosophy Image) */}
+        <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+          <div className="aspect-square overflow-hidden bg-light-gray shadow-xl rounded-sm">
+            <img 
+              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/main/Asserts/IMG_2162.jpeg" 
+              alt="The Philosophy" 
+              className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+              referrerPolicy="no-referrer"
+            />
+          </div>
+          <div className="space-y-6">
+            <span className="text-gold uppercase tracking-[0.3em] text-xs font-bold">05 — The Philosophy</span>
+            <h2 className="font-playfair text-[clamp(2.5rem,4vw,4rem)] leading-tight">
+              Brutalist <br /><span className="italic">Minimalism</span>.
+            </h2>
+            <p className="text-gray-500 text-lg font-light leading-relaxed">
+              Our theme is born from the intersection of brutalist architecture and organic minimalism. 
+              We strip away the noise to reveal the essence of the individual. 
+              Every stitch is a statement of intent.
+            </p>
+            <p className="font-playfair italic text-gold text-xl pt-4 border-t border-gray-100">
+              "To be a rebel is to be yourself in a world that tries to make you everyone else."
+            </p>
+          </div>
+        </div>
+
+        {/* 6. The Identity (Meaning Image) */}
+        <div className="bg-off-white">
+          <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
+            <div className="order-2 md:order-1 space-y-6">
+              <span className="text-gold uppercase tracking-[0.3em] text-xs font-bold">06 — The Identity</span>
+              <h2 className="font-playfair text-[clamp(2.5rem,4vw,4rem)] leading-tight">
+                More than <br /><span className="italic">a Name</span>.
+              </h2>
+              <p className="text-gray-500 text-lg font-light leading-relaxed">
+                Søren is an identity. It represents the quiet strength of those who 
+                choose their own path. We don't follow trends; we define the space 
+                between them. This is alignment.
+              </p>
+            </div>
+            <div className="order-1 md:order-2 aspect-[3/4] overflow-hidden bg-light-gray shadow-xl">
+              <img 
+                src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180908.jpg" 
+                alt="Meaning of Søren" 
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
+                referrerPolicy="no-referrer"
+              />
+            </div>
+          </div>
         </div>
       </section>
     </div>
