@@ -10,11 +10,11 @@ const MOCK_PRODUCT: Product = {
   name: 'The Essential Tee',
   price: 1200,
   images: [
-    'https://drive.google.com/uc?id=1KC9aKYOEjjHXCe6u9HWUHZJPI92Z03EM',
-    'https://drive.google.com/uc?id=151p8jiechACVXEVCcRoaeuShyxhdlFlG',
-    'https://drive.google.com/uc?id=1KC9aKYOEjjHXCe6u9HWUHZJPI92Z03EM',
-    'https://drive.google.com/uc?id=151p8jiechACVXEVCcRoaeuShyxhdlFlG',
-    'https://drive.google.com/uc?id=1KC9aKYOEjjHXCe6u9HWUHZJPI92Z03EM'
+    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180607.jpg',
+    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg',
+    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg',
+    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180732.jpg',
+    'https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180908.jpg'
   ],
   description: 'A minimalist staple. Crafted from heavy-weight organic cotton for a structured drape. Features our signature subtle logo embroidery.',
   sizes: ['S', 'M', 'L', 'XL'],
@@ -75,27 +75,15 @@ export default function Buy() {
       <Checkout isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)} />
 
       {/* SHOP HERO SECTION */}
-      <section className="py-24 md:py-32 px-4 flex flex-col items-center text-center relative overflow-hidden">
-        {/* YouTube Background Video */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          <iframe
-            src="https://www.youtube.com/embed/md5gLzS-qEU?autoplay=1&mute=1&loop=1&playlist=md5gLzS-qEU&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-            className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 opacity-30 border-0"
-            allow="autoplay; encrypted-media"
-          ></iframe>
-          <div className="absolute inset-0 bg-gradient-to-b from-white/80 to-off-white/90"></div>
-        </div>
-        
-        <div className="z-10 flex flex-col items-center text-center w-full">
-          <h1 className="font-playfair text-[clamp(4rem,10vw,8rem)] leading-none mb-4 tracking-tight">
-            DROP 01
-          </h1>
-          <p className="font-mono text-sm tracking-[0.3em] text-gray-400 mb-12">19 / 06 / 26</p>
-          <p className="max-w-2xl text-gray-500 text-[clamp(1rem,1.5vw,1.2rem)] font-light leading-relaxed">
-            Limited Units. Built with intention. Designed to last.<br />
-            Every piece is part of the first chapter. Once gone, it won't return.
-          </p>
-        </div>
+      <section className="py-24 md:py-32 px-4 flex flex-col items-center text-center bg-gradient-to-b from-white to-off-white">
+        <h1 className="font-playfair text-[clamp(4rem,10vw,8rem)] leading-none mb-4 tracking-tight">
+          DROP 01
+        </h1>
+        <p className="font-mono text-sm tracking-[0.3em] text-gray-400 mb-12">19 / 06 / 26</p>
+        <p className="max-w-2xl text-gray-500 text-[clamp(1rem,1.5vw,1.2rem)] font-light leading-relaxed">
+          Limited Units. Built with intention. Designed to last.<br />
+          Every piece is part of the first chapter. Once gone, it won't return.
+        </p>
       </section>
 
       {/* PRODUCTS GRID */}

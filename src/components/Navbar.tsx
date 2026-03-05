@@ -15,7 +15,18 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center gap-3">
-              <span className="font-playfair font-bold text-2xl tracking-tighter">SØREN</span>
+              <img 
+                src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG-20260217-WA0002(1).jpg" 
+                alt="The Søren Studio Favicon" 
+                className="h-8 w-8 object-contain rounded-full"
+                referrerPolicy="no-referrer"
+              />
+              <img 
+                src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG-20260304-WA0010.jpg" 
+                alt="The Søren Studio Logo" 
+                className="h-10 object-contain hidden sm:block"
+                referrerPolicy="no-referrer"
+              />
             </Link>
           </div>
           <div className="flex items-center space-x-6 sm:space-x-8">

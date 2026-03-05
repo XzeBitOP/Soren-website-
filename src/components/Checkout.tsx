@@ -16,7 +16,7 @@ export default function Checkout({ isOpen, onClose }: CheckoutProps) {
   // Mock settings
   const googleFormsLink = "https://docs.google.com/forms/d/e/1FAIpQLSf.../viewform";
   const upiId = "sorenstudio@upi";
-  const qrCodeUrl = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(upiId)}`;
+  const qrCodeUrl = "https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG-20260304-WA0010.jpg"; // Using logo as placeholder
 
   const handleConfirmOrder = () => {
     setIsConfirmed(true);

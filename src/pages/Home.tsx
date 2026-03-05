@@ -88,14 +88,9 @@ export default function Home() {
 
       {/* COUNTDOWN SECTION */}
       <section className="min-h-[calc(100vh-80px)] flex flex-col items-center justify-center relative px-4 py-12 overflow-hidden">
-        {/* YouTube Background Video */}
-        <div className="absolute inset-0 pointer-events-none overflow-hidden z-0">
-          <iframe
-            src="https://www.youtube.com/embed/md5gLzS-qEU?autoplay=1&mute=1&loop=1&playlist=md5gLzS-qEU&controls=0&showinfo=0&rel=0&modestbranding=1&playsinline=1"
-            className="absolute top-1/2 left-1/2 w-[100vw] h-[56.25vw] min-h-[100vh] min-w-[177.77vh] -translate-x-1/2 -translate-y-1/2 opacity-50 border-0"
-            allow="autoplay; encrypted-media"
-          ></iframe>
-          <div className="absolute inset-0 bg-white/60"></div>
+        {/* Subtle grid pattern overlay */}
+        <div className="absolute inset-0 pointer-events-none opacity-[0.03]" 
+             style={{ backgroundImage: 'linear-gradient(#000 1px, transparent 1px), linear-gradient(90deg, #000 1px, transparent 1px)', backgroundSize: '40px 40px' }}>
         </div>
 
         <div className="z-10 flex flex-col items-center text-center w-full max-w-5xl mx-auto">
@@ -147,39 +142,87 @@ export default function Home() {
       </section>
 
       {/* IMAGES SECTION */}
-      <section className="w-full grid grid-cols-1 md:grid-cols-2 gap-1 md:gap-4 px-1 md:px-4 pb-1 md:pb-4">
-        <div className="aspect-[3/4] md:aspect-square overflow-hidden bg-light-gray relative">
-          <img 
-            src="https://drive.google.com/uc?id=151p8jiechACVXEVCcRoaeuShyxhdlFlG" 
-            alt="Logo on cloth" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-            loading="lazy"
-          />
+      <section className="w-full max-w-7xl mx-auto px-4 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
+          {/* Model */}
+          <div className="aspect-[3/4] overflow-hidden bg-light-gray relative lg:col-span-2">
+            <img 
+              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180607.jpg" 
+              alt="Model wearing t-shirt" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+            />
+          </div>
+          {/* Embroidery */}
+          <div className="aspect-[3/4] overflow-hidden bg-light-gray relative">
+            <img 
+              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180639.jpg" 
+              alt="Logo embroidery" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+            />
+          </div>
+          {/* Material */}
+          <div className="aspect-[3/4] overflow-hidden bg-light-gray relative">
+            <img 
+              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180807.jpg" 
+              alt="Material of clothes" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+            />
+          </div>
+          {/* Neon Sign */}
+          <div className="aspect-[3/4] overflow-hidden bg-light-gray relative lg:col-span-2">
+            <img 
+              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180732.jpg" 
+              alt="Neon sign" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+            />
+          </div>
         </div>
-        <div className="aspect-[3/4] md:aspect-square overflow-hidden bg-light-gray relative">
-          <img 
-            src="https://drive.google.com/uc?id=1KC9aKYOEjjHXCe6u9HWUHZJPI92Z03EM" 
-            alt="Girl wearing logo tshirt" 
-            className="w-full h-full object-cover"
-            referrerPolicy="no-referrer"
-            loading="lazy"
-          />
+      </section>
+
+      {/* THEME EXPLANATION SECTION */}
+      <section className="py-24 px-4 bg-off-white flex flex-col items-center text-center">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="font-playfair text-[clamp(2rem,3vw,3rem)] leading-tight mb-12">
+            The Philosophy
+          </h2>
+          <div className="aspect-video w-full overflow-hidden bg-light-gray relative shadow-lg">
+            <img 
+              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/main/Asserts/IMG_2162.jpeg" 
+              alt="Theme explanation" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+              loading="lazy"
+            />
+          </div>
         </div>
       </section>
       
-      {/* VIDEO SECTION */}
+      {/* MEANING OF BRAND SECTION */}
       <section className="w-full bg-light-gray h-[60vh] md:h-[80vh] relative overflow-hidden flex items-center justify-center">
-        <video 
-          autoPlay 
-          loop 
-          muted 
-          playsInline
-          className="absolute inset-0 w-full h-full object-cover opacity-80"
-        >
-          <source src="https://drive.google.com/uc?id=1L1g1uyBjDQuMsRwHwj-5suh_v5h9sd4n" type="video/mp4" />
-        </video>
-        <div className="absolute inset-0 bg-black/10"></div>
+        <img 
+          src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG_20260304_180908.jpg" 
+          alt="Meaning of our brand" 
+          className="absolute inset-0 w-full h-full object-cover opacity-90"
+          referrerPolicy="no-referrer"
+          loading="lazy"
+        />
+        <div className="absolute inset-0 bg-black/20"></div>
+        <div className="relative z-10 text-center px-4">
+          <h2 className="font-playfair text-white text-[clamp(3rem,6vw,5rem)] leading-none mb-6 drop-shadow-lg">
+            Søren
+          </h2>
+          <p className="text-white/90 uppercase tracking-[0.3em] text-sm font-medium drop-shadow-md">
+            More than a name. An identity.
+          </p>
+        </div>
       </section>
     </div>
   );

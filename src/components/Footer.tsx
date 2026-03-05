@@ -5,7 +5,12 @@ export default function Footer() {
     <footer className="bg-black text-white py-16 px-6 md:px-12 lg:px-24">
       <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-12 mb-16">
         <div className="flex flex-col gap-6">
-          <span className="font-playfair font-bold text-3xl tracking-tighter text-white">SØREN</span>
+          <img 
+            src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/fc752cd7a23909f18cee3c851dfe1636fe52025b/Asserts/IMG-20260304-WA0010.jpg" 
+            alt="The Søren Studio Logo" 
+            className="h-8 object-contain object-left filter invert"
+            referrerPolicy="no-referrer"
+          />
           <p className="text-gray-400 text-sm leading-relaxed max-w-xs font-light">
             Designs for identity, not validation. Creating timeless pieces that empower individual expression.
           </p>
