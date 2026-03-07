@@ -1,11 +1,32 @@
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Download } from 'lucide-react';
 import { useCart } from '../context/CartContext';
 
 export default function Navbar() {
   const location = useLocation();
   const { cartItems, toggleCart } = useCart();
   const isBuyPage = location.pathname === '/buy';
+  const [deferredPrompt, setDeferredPrompt] = useState<any>(null);
+
+  useEffect(() => {
+    const handleBeforeInstallPrompt = (e: any) => {
+      e.preventDefault();
+      setDeferredPrompt(e);
+    };
+    window.addEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+    return () => window.removeEventListener('beforeinstallprompt', handleBeforeInstallPrompt);
+  }, []);
+
+  const handleInstallClick = async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt();
+      const { outcome } = await deferredPrompt.userChoice;
+      if (outcome === 'accepted') {
+        setDeferredPrompt(null);
+      }
+    }
+  };
 
   const cartCount = cartItems.reduce((acc, item) => acc + item.quantity, 0);
 
@@ -35,6 +56,17 @@ export default function Navbar() {
             <Link to="#" className="text-sm tracking-widest uppercase hover:text-gold transition-colors hidden sm:block">About</Link>
             <Link to="#" className="text-sm tracking-widest uppercase hover:text-gold transition-colors hidden sm:block">Contact</Link>
             
+            {deferredPrompt && (
+              <button 
+                onClick={handleInstallClick}
+                className="text-sm tracking-widest uppercase hover:text-gold transition-colors flex items-center gap-1"
+                title="Install App"
+              >
+                <Download className="w-4 h-4" />
+                <span className="hidden sm:inline">Install</span>
+              </button>
+            )}
+
             {isBuyPage && (
               <button 
                 onClick={toggleCart}

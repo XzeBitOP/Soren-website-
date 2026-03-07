@@ -325,7 +325,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 py-24 md:py-32 grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-24 items-center">
           <div className="aspect-square overflow-hidden bg-light-gray shadow-xl rounded-sm">
             <img 
-              src="https://raw.githubusercontent.com/XzeBitOP/Soren-website-/main/Asserts/IMG_2162.jpeg" 
+              src="https://raw.githubusercontent.com/XzeBitOP/SorenAssets/1ff273d7c2450f607ecb308b9ec9493ee81670d6/Website%20images/IMG_2162.jpeg" 
               alt="The Philosophy" 
               className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               referrerPolicy="no-referrer"

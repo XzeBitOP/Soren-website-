@@ -1,0 +1,20 @@
+{
+  "name": "The Søren Studio",
+  "short_name": "Søren",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#000000",
+  "icons": [
+    {
+      "src": "https://raw.githubusercontent.com/XzeBitOP/SorenAssets/523e980e00147547de4ac0d92b93658cd9aa9518/Website%20images/6D2E38AE-E45F-4861-96EB-B2FC8B03F4A2.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "https://raw.githubusercontent.com/XzeBitOP/SorenAssets/523e980e00147547de4ac0d92b93658cd9aa9518/Website%20images/6D2E38AE-E45F-4861-96EB-B2FC8B03F4A2.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
