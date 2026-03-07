@@ -70,6 +70,23 @@ export default function Home() {
         Test Launch
       </button>
 
+      {/* VIDEO HEADER */}
+      <section className="relative w-full h-screen overflow-hidden flex items-center justify-center">
+        <video 
+          autoPlay 
+          loop 
+          muted 
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source src="https://raw.githubusercontent.com/XzeBitOP/SorenAssets/a68089a98403be55833cc2a9661f6b5c491e7058/Website%20images/gemini_generated_video_8CD4E571.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-black/40"></div>
+        <h1 className="relative z-10 font-playfair text-white text-[clamp(3rem,8vw,6rem)] tracking-widest text-center px-4">
+          THE SØREN STUDIO
+        </h1>
+      </section>
+
       {/* Explosion Animation Overlay */}
       <AnimatePresence>
         {showExplosion && (

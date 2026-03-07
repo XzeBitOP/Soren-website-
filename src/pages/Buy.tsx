@@ -158,7 +158,7 @@ export default function Buy() {
   };
 
   return (
-    <div className="w-full bg-white min-h-screen">
+    <div className="w-full bg-white min-h-screen pt-20">
       <Cart onCheckout={() => setIsCheckoutOpen(true)} />
       <Checkout isOpen={isCheckoutOpen} onClose={() => setIsCheckoutOpen(false)} />
 
